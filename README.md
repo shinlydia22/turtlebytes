@@ -2,8 +2,7 @@
 
 ## Tech Stack
 
-- OpenCV
-- Image processing; python
+- Easy OCRY
 - VS code
 - Github (turtlebytes)
 - Dataset (w/ allergens, ingredients, etc.)
