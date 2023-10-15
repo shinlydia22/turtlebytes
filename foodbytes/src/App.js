@@ -2,11 +2,11 @@ import logo from './food_icon.png';
 import './App.css';
 import axios from 'axios';
 import React, { Component } from 'react';
+import { useState } from 'react';
 
-
-const header_comp = {
-  imgURL: 'https://shorturl.at/emzMT'
-};
+// const header_comp = {
+//   imgURL: 'https://shorturl.at/emzMT'
+// };
 
 function MyButton() {
   function handleClick() {
@@ -36,7 +36,7 @@ function MyButton() {
 
 
 class App extends Component {
- 
+
   state = {
 
       // Initially, no file is selected
@@ -69,10 +69,13 @@ class App extends Component {
 
       // Request made to the backend api
       // Send formData object
-      axios.post("https://localhost:5000/uploadfile", formData)
+      axios.post("http://localhost:5000/uploadfile", formData)
       .then(response => {
         // Handle the response, e.g., show a success message to the user
-
+        const res = response.data
+        // setProfileData(({
+        //   profile_name: res.name,
+        //   about_me: res.about}))
         console.log("File uploaded successfully.");
       })
       .catch(error => {
@@ -84,7 +87,6 @@ class App extends Component {
 
       });
 
-      
   };
 
   // File content to be displayed after
@@ -133,6 +135,13 @@ class App extends Component {
                 <button onClick={this.onFileUpload}>
                     Submit
                 </button>
+
+                {/* <p>To get your profile details: </p><button onClick={getData}>Click me</button>
+                {profileData && <div>
+                      <p>Profile name: {profileData.profile_name}</p>
+                      <p>About me: {profileData.about_me}</p>
+                    </div>
+                } */}
             </div>
             {this.fileData()}
         </div>
