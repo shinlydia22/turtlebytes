@@ -1,4 +1,10 @@
 from PIL import Image
+import os
+import easyocr
+import cv2
+from matplotlib import pyplot as plt
+import numpy as np
+import re
 
 class Product:
     #" instance variables:
@@ -8,18 +14,20 @@ class Product:
     # ... potentially more 
     # "
 
-    #constructor:
-    def __init__():
+    #constructor (for testing):
+    def __init__(self):
         self.yay = 1
 
-    def __init__(image):
+    #real constructor
+    def __init__(self, image):
         #instance variable of type Image called image
         self.image = image
+        reader = easyocr.Reader(['en'])
         self.ingredients = ' '.join(reader.readtext('./ingredients.jpg', paragraph="True", detail = 0))
         
 
-    def processIngreds():
-        words = re.split(r'[,()\[\]_\;\\]', ingredients)
+    def processIngreds(self):
+        words = re.split(r'[,()\[\]_\;\\]', self.ingredients)
         for i in range(len(words)):
             words[i] = words[i].strip()
         words.remove("")
