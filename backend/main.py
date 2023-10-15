@@ -1,3 +1,4 @@
 from product import Product
 
-bob = Product('test2.png')
+bob = Product('splenda.jpg')
+print(bob.getSugars())
