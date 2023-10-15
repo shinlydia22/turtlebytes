@@ -85,9 +85,9 @@ class Product:
         words_lower = [word.lower() for word in self.words]
 
         for word in words_lower:
-            for sugar in carcinogens_lower:
-                if sugar in word:
-                    carcSimilar.append(sugar)
+            for carc in carcinogens_lower:
+                if carc in word:
+                    carcSimilar.append(carc)
 
         return carcSimilar
     
