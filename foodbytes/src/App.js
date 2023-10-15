@@ -69,7 +69,21 @@ class App extends Component {
 
       // Request made to the backend api
       // Send formData object
-      axios.post("api/uploadfile", formData);
+      axios.post("https://localhost:5000/uploadfile", formData)
+      .then(response => {
+        // Handle the response, e.g., show a success message to the user
+        
+        console.log("File uploaded successfully.");
+      })
+      .catch(error => {
+        if (error.response && error.response.status === 404) {
+          console.error('Resource not found');
+        } else {
+          console.error('An error occurred:', error.message);
+        }
+      });
+
+      
   };
 
   // File content to be displayed after
