@@ -72,7 +72,7 @@ class App extends Component {
       axios.post("https://localhost:5000/uploadfile", formData)
       .then(response => {
         // Handle the response, e.g., show a success message to the user
-        
+
         console.log("File uploaded successfully.");
       })
       .catch(error => {
@@ -81,6 +81,7 @@ class App extends Component {
         } else {
           console.error('An error occurred:', error.message);
         }
+
       });
 
       
