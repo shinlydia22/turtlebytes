@@ -22,10 +22,23 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: rgb(0, 0, 0);
+  font-family: "Lucida Handwriting", "Brush Script MT", cursive;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.Main{
+  text-align: center;
+}
+
+.Upload{
+  background-color: #b1c6b0;
+}
+
+.Choose{
+  font-family: "Serif";
 }
 
 /* @keyframes App-logo-spin {

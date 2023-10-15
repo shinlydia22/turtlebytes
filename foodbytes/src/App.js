@@ -1,7 +1,7 @@
 import logo from './food_icon.png';
 import './App.css';
 import axios from 'axios';
-import React, { Component } from 'react';
+import { Component,useState } from 'react';
 
 
 const header_comp = {
@@ -18,7 +18,7 @@ function MyButton() {
       Upload Image
     </button>
   );
-}
+};
 
 // // function App() {
 //   return (
@@ -36,7 +36,7 @@ function MyButton() {
 
 
 class App extends Component {
- 
+
   state = {
 
       // Initially, no file is selected
@@ -69,10 +69,10 @@ class App extends Component {
 
       // Request made to the backend api
       // Send formData object
-      axios.post("https://localhost:5000/uploadfile", formData)
+      axios.post("http://localhost:5000/uploadfile", formData)
       .then(response => {
         // Handle the response, e.g., show a success message to the user
-
+        const res = response.json()
         console.log("File uploaded successfully.");
       })
       .catch(error => {
@@ -122,19 +122,21 @@ class App extends Component {
              <img src={logo} className="App-logo" alt="logo" />
              <h> Welcome to FoodBytes! </h>
            </header>
-            <h1>
-                FoodBytes
-            </h1>
-            <h3>
-                File Upload Here!
+           <div className='Main'>
+              <h1>
+                  FoodBytes
+              </h1>
+              <h3>
+                  File Upload Here!
             </h3>
-            <div>
-                <input type="file" onChange={this.onFileChange} />
-                <button onClick={this.onFileUpload}>
-                    Submit
-                </button>
+              <div>
+                  <input className='Choose' type="file" onChange={this.onFileChange} />
+                  <button className = "Upload" onClick={this.onFileUpload}>
+                      Submit
+                  </button>
+              </div>
+              {this.fileData()}
             </div>
-            {this.fileData()}
         </div>
     );
   }

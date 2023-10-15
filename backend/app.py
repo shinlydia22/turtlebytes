@@ -13,22 +13,25 @@ def allowed_file(filename):
 
 
 @app.route('/uploadfile', methods=['POST'])
-def upload_file():
-    if 'myFile' not in request.files:
-        return jsonify({'error': 'No file provided'}), 400
+def uploadfile():
+    # if 'myFile' not in request.files:
+    #     return jsonify({'message': 'No file provided'}), 400
 
-    file = request.files['myFile']
+    # file = request.files['myFile']
 
-    if file.filename == '':
-        return jsonify({'error': 'No selected file'}), 400
+    # if file.filename == '':
+    #     return jsonify({'message': 'No selected file'}), 400
 
-    if not allowed_file(file.filename):
-        return jsonify({'error': 'Invalid file type'}), 400
+    # if not allowed_file(file.filename):
+    #     return jsonify({'message': 'Invalid file type'}), 400
     
-    if file:
-        # Save the uploaded file to a folder on the server
-        file.save('uploads/' + file.filename)
-        return "File uploaded successfully"
+    # if file:
+
+    # Save the uploaded file to a folder on the server
+    f = request.files['file'] 
+    f.save(f.filename)
+    # return "File uploaded successfully"
+    return jsonify({'message': 'File uploaded successfully'})
 
 
     file_data = file.read()
@@ -43,6 +46,14 @@ def upload_file():
     return jsonify({'message': 'File uploaded successfully'})
 
 import subprocess
+
+@app.route('/profile')
+def my_profile():
+    response_body = {
+        "name": "Nagato",
+        "about" :"Hello! I'm a full stack developer that loves python and javascript"
+    }
+    return response_body
 
 @app.route('/api/analyze-image', methods=['POST'])
 def analyze_image():
