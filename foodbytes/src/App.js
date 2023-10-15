@@ -4,25 +4,7 @@ import axios from 'axios';
 import { Component, useState } from 'react';
 import Popup from './components/Popup';
 
-// const header_comp = {
-//   imgURL: 'https://shorturl.at/emzMT'
-// };
-
-function MyButton() {
-  function handleClick() {
-    alert('You clicked me!');
-  }
-
-  return (
-    <button onClick={handleClick}>
-      Upload Image
-    </button>
-  );
-};
-
 class App extends Component {
-
-  const [buttonPopup,setButtonPopup] = useState(false);
 
   state = {
 
