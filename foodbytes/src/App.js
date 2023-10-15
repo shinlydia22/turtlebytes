@@ -1,12 +1,16 @@
 import logo from './food_icon.png';
 import './App.css';
 import axios from 'axios';
+<<<<<<< HEAD
 import { Component,useState } from 'react';
+=======
+import React, { Component } from 'react';
+import { useState } from 'react';
+>>>>>>> 577a6f5c6989011d021fdbdd84681213d08bf083
 
-
-const header_comp = {
-  imgURL: 'https://shorturl.at/emzMT'
-};
+// const header_comp = {
+//   imgURL: 'https://shorturl.at/emzMT'
+// };
 
 function MyButton() {
   function handleClick() {
@@ -72,7 +76,14 @@ class App extends Component {
       axios.post("http://localhost:5000/uploadfile", formData)
       .then(response => {
         // Handle the response, e.g., show a success message to the user
+<<<<<<< HEAD
         const res = response.json()
+=======
+        const res = response.data
+        // setProfileData(({
+        //   profile_name: res.name,
+        //   about_me: res.about}))
+>>>>>>> 577a6f5c6989011d021fdbdd84681213d08bf083
         console.log("File uploaded successfully.");
       })
       .catch(error => {
@@ -84,36 +95,10 @@ class App extends Component {
 
       });
 
-      
   };
 
   // File content to be displayed after
   // file upload is complete
-  fileData = () => {
-    if (this.state.selectedFile) {
-      return (
-          <div>
-              <h2>File Details:</h2>
-              <p>File Name: {this.state.selectedFile.name}</p>
-
-              <p>File Type: {this.state.selectedFile.type}</p>
-
-              <p>
-                  Last Modified:{" "}
-                  {this.state.selectedFile.lastModifiedDate.toDateString()}
-              </p>
-
-          </div>
-      );
-    } else {
-        return (
-            <div>
-                <br />
-                <h4>Choose your file, then upload!</h4>
-            </div>
-        );
-    }
-  };
 
   render() {
     return (
@@ -129,6 +114,7 @@ class App extends Component {
               <h3>
                   File Upload Here!
             </h3>
+<<<<<<< HEAD
               <div>
                   <input className='Choose' type="file" onChange={this.onFileChange} />
                   <button className = "Upload" onClick={this.onFileUpload}>
@@ -136,6 +122,20 @@ class App extends Component {
                   </button>
               </div>
               {this.fileData()}
+=======
+            <div>
+                <input type="file" onChange={this.onFileChange} />
+                <button onClick={this.onFileUpload}>
+                    Submit
+                </button>
+
+                {/* <p>To get your profile details: </p><button onClick={getData}>Click me</button>
+                {profileData && <div>
+                      <p>Profile name: {profileData.profile_name}</p>
+                      <p>About me: {profileData.about_me}</p>
+                    </div>
+                } */}
+>>>>>>> 577a6f5c6989011d021fdbdd84681213d08bf083
             </div>
         </div>
     );
