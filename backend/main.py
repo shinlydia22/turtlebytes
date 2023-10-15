@@ -1,4 +1,3 @@
 from product import Product
 
-bob = Product()
-print(bob.yay)
+bob = Product('test2.png')
