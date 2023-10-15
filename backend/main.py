@@ -1,4 +1,5 @@
 from product import Product
 
 bob = Product('splenda.jpg')
-print(bob.getSugars())
+print(1+1)
+print(bob.getHiddenSugars())
