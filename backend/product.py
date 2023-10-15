@@ -23,10 +23,10 @@ class Product:
         self.image = image
         reader = easyocr.Reader(['en'])
         self.ingredients = ' '.join(reader.readtext(self.image, paragraph="True", detail = 0))
-        self.processIngreds()
+        self.__processIngreds()
         
 
-    def processIngreds(self):
+    def __processIngreds(self):
         words = re.split(r'[,\'\":(){}.\[\]\=_\;\\]', self.ingredients)
         misread = []
         spell = SpellChecker()
@@ -62,7 +62,7 @@ class Product:
         self.words = words
 
 
-    def hiddenSugars(self):
+    def __hiddenSugars(self):
         hiddenSugars = ["aspartame", "sucralose", "acesulfame potassium", "saccharin", "neotame", "sorbitol", "xylitol", "erythritol", "maltitol", "maltodextrin"]
         sugarsSimilar = []
         
@@ -77,7 +77,7 @@ class Product:
         return sugarsSimilar
 
     
-    def carcinogens(self, words):
+    def __carcinogens(self, words):
         carcinogens = ["butylated hydroxyanisole", "potassium bromate", "acrymalide", "sodium nitrate", "sodium nitrite", "propylene oxide", "yellow 6", "yellow #6", "red 6", "red #6"]
         carcSimilar = []
 
@@ -92,11 +92,11 @@ class Product:
         return carcSimilar
     
     def getSugars(self):
-        result = self.hiddenSugars()
+        result = self.__hiddenSugars()
         return result
     
     def getCarcs(self):
-        return self.carcinogens(self.words)
+        return self.__carcinogens(self.words)
 
 
     
