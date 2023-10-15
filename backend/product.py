@@ -9,13 +9,13 @@ class Product:
     # "
 
     #constructor:
-    def __init__():
+    def __init__(self):
         self.yay = 1
 
-    def __init__(image):
+    #def __init__(image):
         #instance variable of type Image called image
-        self.image = image
-        self.ingredients = ' '.join(reader.readtext('./ingredients.jpg', paragraph="True", detail = 0))
+        #self.image = image
+        #self.ingredients = ' '.join(reader.readtext('./ingredients.jpg', paragraph="True", detail = 0))
         
 
     def processIngreds():
