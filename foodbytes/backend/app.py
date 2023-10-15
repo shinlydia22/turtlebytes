@@ -14,24 +14,23 @@ def allowed_file(filename):
 
 @app.route('/uploadfile', methods=['POST'])
 def uploadfile():
-    # if 'myFile' not in request.files:
-    #     return jsonify({'message': 'No file provided'}), 400
+    if 'myFile' not in request.files:
+        return jsonify({'message': 'No file provided'}), 400
 
-    # file = request.files['myFile']
+    file = request.files['myFile']
 
-    # if file.filename == '':
-    #     return jsonify({'message': 'No selected file'}), 400
+    if file.filename == '':
+        return jsonify({'message': 'No selected file'}), 400
 
-    # if not allowed_file(file.filename):
-    #     return jsonify({'message': 'Invalid file type'}), 400
+    if not allowed_file(file.filename):
+        return jsonify({'message': 'Invalid file type'}), 400
     
-    # if file:
-
+    if file:
     # Save the uploaded file to a folder on the server
-    f = request.files['file'] 
-    f.save(f.filename)
-    # return "File uploaded successfully"
-    return jsonify({'message': 'File uploaded successfully'})
+        f = request.files['file'] 
+        f.save(f.filename)
+        # return "File uploaded successfully"
+        return jsonify({'message': 'File uploaded successfully'})
 
 
     file_data = file.read()
