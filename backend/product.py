@@ -77,7 +77,7 @@ class Product:
         return sugarsSimilar
 
     
-    def carcinogens(self, words):
+    def carcinogens(self):
         carcinogens = ["butylated hydroxyanisole", "potassium bromate", "acrymalide", "sodium nitrate", "sodium nitrite", "propylene oxide", "yellow 6", "yellow #6", "red 6", "red #6"]
         carcSimilar = []
 
@@ -90,13 +90,6 @@ class Product:
                     carcSimilar.append(carc)
 
         return carcSimilar
-    
-    def getSugars(self):
-        result = self.hiddenSugars()
-        return result
-    
-    def getCarcs(self):
-        return self.carcinogens(self.words)
 
 
     
