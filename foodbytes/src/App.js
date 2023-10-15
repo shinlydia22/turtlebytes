@@ -91,31 +91,6 @@ class App extends Component {
 
   // File content to be displayed after
   // file upload is complete
-  fileData = () => {
-    if (this.state.selectedFile) {
-      return (
-          <div>
-              <h2>File Details:</h2>
-              <p>File Name: {this.state.selectedFile.name}</p>
-
-              <p>File Type: {this.state.selectedFile.type}</p>
-
-              <p>
-                  Last Modified:{" "}
-                  {this.state.selectedFile.lastModifiedDate.toDateString()}
-              </p>
-
-          </div>
-      );
-    } else {
-        return (
-            <div>
-                <br />
-                <h4>Choose your file, then upload!</h4>
-            </div>
-        );
-    }
-  };
 
   render() {
     return (
